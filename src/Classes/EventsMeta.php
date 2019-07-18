@@ -32,7 +32,7 @@ class EventsMeta extends Frontend
             return; // no events
         }
 
-        $eevnts = CalendarEventsModel::findOneBy(
+        $events = CalendarEventsModel::findOneBy(
             ['alias=?', 'published=?'],
             [$this->Input->get('items'), 1]
         );

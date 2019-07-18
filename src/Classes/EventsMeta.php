@@ -18,23 +18,23 @@
 
 namespace EuF\ContaoEventsMeta\Classes;
 
-use Contao\Frontend;
+use Contao\Input;
 use Contao\LayoutModel;
 use Contao\CalendarEventsModel;
 use Contao\PageModel;
 use Contao\PageRegular;
 
-class EventsMeta extends Frontend
+class EventsMeta
 {
     public function onGeneratePage(PageModel $objPage, LayoutModel $objLayout, PageRegular $objPageRegular)
     {
-        if (!$this->Input->get('items')) {
-            return; // no events
+        if (!$autoItem = Input::get('auto_item')) {
+            return;
         }
 
         $events = CalendarEventsModel::findOneBy(
             ['alias=?', 'published=?'],
-            [$this->Input->get('items'), 1]
+            [$autoItem, 1]
         );
 
         if (null === $events) {
@@ -48,6 +48,5 @@ class EventsMeta extends Frontend
         if ($events->meta_description) {
             $objPage->description = $events->meta_description;
         }
-
     }
 }

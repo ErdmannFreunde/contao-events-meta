@@ -18,6 +18,7 @@
 
 namespace EuF\ContaoEventsMeta\ContaoManager;
 
+use Contao\CalendarBundle\ContaoCalendarBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
@@ -33,7 +34,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(ContaoEventsMetaBundle::class)
-                ->setLoadAfter([ContaoCoreBundle::class]),
+                ->setLoadAfter([ContaoCoreBundle::class, ContaoCalendarBundle::class]),
         ];
     }
 }

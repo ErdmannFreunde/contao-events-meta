@@ -20,7 +20,7 @@
     \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER
 )->applyToPalette('default', 'tl_calendar_events');
 
-$GLOBALS['TL_DCA']['tl_calender_events']['fields']['meta_title'] = [
+$GLOBALS['TL_DCA']['tl_calendar_events']['fields']['meta_title'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_calendar_events']['meta_title'],
     'exclude' => true,
     'search' => true,
